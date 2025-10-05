@@ -8,7 +8,7 @@
 body, html {
     width: 100%;
     height: 100%;
-    background: radial-gradient( #000000);
+    background: radial-gradient(#000000);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ body, html {
 section {
     width: 100%;
     height: 100%;
-    position: relative; /* reference cho circle và heart */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,12 +27,11 @@ section {
 
 /* Heart iframe */
 .heart {
-    width: 60vw;
-    max-width: 400px;
+    width: 120vw; /* tăng gấp đôi */
+    max-width: 800px; /* tăng gấp đôi */
     aspect-ratio: 1 / 1;
     overflow: hidden;
     position: relative;
-    /* SVG mask */
     -webkit-mask: url(#heartSvg) no-repeat center/contain;
     mask: url(#heartSvg) no-repeat center/contain;
 }
@@ -53,21 +52,17 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 5px 12.5px;
-    font-size: 3em;
+    padding: 10px 25px; /* tăng gấp đôi */
+    font-size: 6em; /* tăng gấp đôi */
     color: #fff;
     background: radial-gradient(#4c0c0c, #111);
-    border-top: 4px solid #d2799b;
-    border-bottom: 4px solid #d2799b;
+    border-top: 8px solid #d2799b; /* tăng gấp đôi */
+    border-bottom: 8px solid #d2799b; /* tăng gấp đôi */
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i) * calc(12deg))) translateZ(200px);
+    transform: rotateY(calc(var(--i) * 12deg)) translateZ(400px); /* tăng gấp đôi */
+    text-shadow: 0 0 16px #ff69b4, 0 0 30px #ff1493; /* tăng gấp đôi glow */
 }
-.circle span {
-  color: #fff;
-  text-shadow: 0 0 8px #ff69b4, 0 0 15px #ff1493;
-}
-
 
 .circle span::before {
     content: '';
@@ -77,163 +72,161 @@ section {
     width: 100%;
     height: 100%;
     background: radial-gradient(#4c0c0c, #111);
-    transform: translateZ(-5px);
+    transform: translateZ(-10px); /* tăng gấp đôi */
 }
 
 @keyframes animateText {
     0% {
-        transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(-30px);
+        transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(-60px); /* tăng gấp đôi */
     }
     100% {
-        transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(-30px);
+        transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(-60px);
     }
 }
+
 /* ======= Galaxy background ======= */
 body {
-  background: #000;
-  overflow: hidden;
+    background: #000;
+    overflow: hidden;
 }
 
-/* Container toàn cảnh galaxy */
 .galaxy {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(closest-side at 20% 25%, rgba(25,10,40,0.65), transparent 30%),
-              radial-gradient(closest-side at 75% 70%, rgba(10,25,45,0.6), transparent 30%),
-              radial-gradient(closest-side at 50% 50%, rgba(80,10,90,0.08), transparent 20%),
-              #000;
-  overflow: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(closest-side at 20% 25%, rgba(25,10,40,0.65), transparent 30%),
+                radial-gradient(closest-side at 75% 70%, rgba(10,25,45,0.6), transparent 30%),
+                radial-gradient(closest-side at 50% 50%, rgba(80,10,90,0.08), transparent 20%),
+                #000;
+    overflow: hidden;
 }
 
-/* Đám tinh vân chuyển động nhẹ */
 .nebula {
-  position: absolute;
-  inset: -20%;
-  filter: blur(60px) saturate(140%);
-  mix-blend-mode: screen;
-  opacity: 0.55;
-  animation: nebulaMove 28s linear infinite alternate;
-  pointer-events: none;
+    position: absolute;
+    inset: -40%; /* tăng gấp đôi */
+    filter: blur(120px) saturate(140%);
+    mix-blend-mode: screen;
+    opacity: 0.55;
+    animation: nebulaMove 28s linear infinite alternate;
+    pointer-events: none;
 }
+
 .nebula::before,
 .nebula::after {
-  content: "";
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  top: 10%;
-  left: 12%;
-  background:
-    radial-gradient(45% 35% at 20% 30%, rgba(255, 120, 200, 0.18), transparent 20%),
-    radial-gradient(40% 30% at 60% 50%, rgba(120, 160, 255, 0.12), transparent 20%),
-    radial-gradient(50% 40% at 40% 70%, rgba(80, 220, 200, 0.09), transparent 20%);
-  transform: translateZ(0);
+    content: "";
+    position: absolute;
+    width: 140%; /* tăng gấp đôi */
+    height: 140%;
+    top: 10%;
+    left: 12%;
+    background:
+      radial-gradient(45% 35% at 20% 30%, rgba(255, 120, 200, 0.18), transparent 20%),
+      radial-gradient(40% 30% at 60% 50%, rgba(120, 160, 255, 0.12), transparent 20%),
+      radial-gradient(50% 40% at 40% 70%, rgba(80, 220, 200, 0.09), transparent 20%);
+    transform: translateZ(0);
 }
+
 .nebula::after {
-  width: 60%;
-  height: 60%;
-  top: 20%;
-  left: 45%;
-  background:
-    radial-gradient(45% 35% at 30% 30%, rgba(255, 90, 160, 0.13), transparent 20%),
-    radial-gradient(40% 30% at 70% 60%, rgba(90, 200, 255, 0.1), transparent 20%);
-  opacity: 0.9;
-  filter: blur(50px);
+    width: 120%; /* tăng gấp đôi */
+    height: 120%;
+    top: 20%;
+    left: 45%;
+    background:
+      radial-gradient(45% 35% at 30% 30%, rgba(255, 90, 160, 0.13), transparent 20%),
+      radial-gradient(40% 30% at 70% 60%, rgba(90, 200, 255, 0.1), transparent 20%);
+    opacity: 0.9;
+    filter: blur(100px);
 }
 
 @keyframes nebulaMove {
-  0% { transform: translate3d(-3%, -2%, 0) scale(1); }
-  50% { transform: translate3d(6%, 4%, 0) scale(1.03); }
-  100% { transform: translate3d(-3%, 2%, 0) scale(1); }
+    0% { transform: translate3d(-6%, -4%, 0) scale(1); }
+    50% { transform: translate3d(12%, 8%, 0) scale(1.03); }
+    100% { transform: translate3d(-6%, 4%, 0) scale(1); }
 }
 
-/* Sao nhấp nháy (nhiều chấm sáng nhỏ) */
+/* Stars */
 .stars,
 .stars::after {
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
 }
 
-/* lớp 1: sao to thưa */
 .stars {
-  background: radial-gradient(2px 2px at 10px 10px, rgba(255,255,255,0.95) 50%, transparent 51%),
-              radial-gradient(1.5px 1.5px at 50px 80px, rgba(255,255,255,0.9) 50%, transparent 51%);
-  opacity: 0.9;
+    background: radial-gradient(4px 4px at 10px 10px, rgba(255,255,255,0.95) 50%, transparent 51%),
+                radial-gradient(3px 3px at 50px 80px, rgba(255,255,255,0.9) 50%, transparent 51%);
+    opacity: 0.9;
 }
 
-/* lớp 2: sao nhỏ dày đặc */
 .stars::after {
-  content: "";
-  width: 2px;
-  height: 2px;
-  top: 0;
-  left: 0;
-  background: white;
-  box-shadow:
-    10px 20px 0 0 rgba(255,255,255,0.8),
-    30px 90px 0 0 rgba(255,255,255,0.6),
-    60px 40px 0 0 rgba(255,255,255,0.7),
-    120px 200px 0 0 rgba(255,255,255,0.6),
-    200px 60px 0 0 rgba(255,255,255,0.8),
-    260px 120px 0 0 rgba(255,255,255,0.5),
-    340px 40px 0 0 rgba(255,255,255,0.7),
-    420px 300px 0 0 rgba(255,255,255,0.6),
-    520px 180px 0 0 rgba(255,255,255,0.5),
-    640px 60px 0 0 rgba(255,255,255,0.7),
-    760px 210px 0 0 rgba(255,255,255,0.6),
-    820px 40px 0 0 rgba(255,255,255,0.8),
-    900px 300px 0 0 rgba(255,255,255,0.5),
-    980px 120px 0 0 rgba(255,255,255,0.6),
-    1100px 40px 0 0 rgba(255,255,255,0.7),
-    1240px 260px 0 0 rgba(255,255,255,0.5);
-  opacity: 0.9;
-  animation: twinkle 6s linear infinite;
-  transform: translateZ(0);
+    content: "";
+    width: 2px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: white;
+    box-shadow:
+      20px 40px 0 0 rgba(255,255,255,0.8),
+      60px 180px 0 0 rgba(255,255,255,0.6),
+      120px 80px 0 0 rgba(255,255,255,0.7),
+      240px 400px 0 0 rgba(255,255,255,0.6),
+      400px 120px 0 0 rgba(255,255,255,0.8),
+      520px 240px 0 0 rgba(255,255,255,0.5),
+      680px 80px 0 0 rgba(255,255,255,0.7),
+      840px 600px 0 0 rgba(255,255,255,0.6),
+      1040px 360px 0 0 rgba(255,255,255,0.5),
+      1280px 120px 0 0 rgba(255,255,255,0.7),
+      1520px 420px 0 0 rgba(255,255,255,0.6),
+      1640px 80px 0 0 rgba(255,255,255,0.8),
+      1800px 600px 0 0 rgba(255,255,255,0.5),
+      1960px 240px 0 0 rgba(255,255,255,0.6),
+      2200px 80px 0 0 rgba(255,255,255,0.7),
+      2480px 520px 0 0 rgba(255,255,255,0.5);
+    opacity: 0.9;
+    animation: twinkle 6s linear infinite;
+    transform: translateZ(0);
 }
 
-/* sao nhấp nháy nhẹ */
 @keyframes twinkle {
-  0%   { opacity: 0.7; filter: blur(0px); }
-  50%  { opacity: 1;   filter: blur(0.6px); }
-  100% { opacity: 0.7; filter: blur(0px); }
+    0%   { opacity: 0.7; filter: blur(0px); }
+    50%  { opacity: 1;   filter: blur(1.2px); } /* tăng gấp đôi */
+    100% { opacity: 0.7; filter: blur(0px); }
 }
 
-/* Sao băng */
+/* Shooting stars */
 .shooting {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: visible;
-}
-.shooting span {
-  position: absolute;
-  width: 2px;
-  height: 60px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.0));
-  top: 10%;
-  left: 10%;
-  transform: rotate(-35deg) translateX(-100vw);
-  opacity: 0;
-  filter: blur(0.5px);
-  animation: shoot 2.4s linear infinite;
-  animation-delay: 3s;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
 }
 
-/* Sao băng thứ 2 */
+.shooting span {
+    position: absolute;
+    width: 4px; /* tăng gấp đôi */
+    height: 120px; /* tăng gấp đôi */
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.0));
+    top: 10%;
+    left: 10%;
+    transform: rotate(-35deg) translateX(-200vw); /* tăng gấp đôi */
+    opacity: 0;
+    filter: blur(1px); /* tăng gấp đôi */
+    animation: shoot 2.4s linear infinite;
+    animation-delay: 3s;
+}
+
 .shooting span:nth-child(2) {
-  top: 60%;
-  left: 85%;
-  transform: rotate(-25deg) translateX(100vw);
-  animation-delay: 7s;
-  animation-duration: 1.8s;
+    top: 60%;
+    left: 85%;
+    transform: rotate(-25deg) translateX(200vw);
+    animation-delay: 7s;
+    animation-duration: 1.8s;
 }
 
 @keyframes shoot {
-  0%   { opacity: 0; transform: translateX(0) rotate(-35deg) scaleY(0.2); }
-  10%  { opacity: 1; transform: translateX(40vw) rotate(-35deg) scaleY(1); }
-  60%  { opacity: 0.7; transform: translateX(80vw) rotate(-35deg) scaleY(0.9); }
-  100% { opacity: 0; transform: translateX(120vw) rotate(-35deg) scaleY(0.2); }
+    0%   { opacity: 0; transform: translateX(0) rotate(-35deg) scaleY(0.2); }
+    10%  { opacity: 1; transform: translateX(80vw) rotate(-35deg) scaleY(1); }
+    60%  { opacity: 0.7; transform: translateX(160vw) rotate(-35deg) scaleY(0.9); }
+    100% { opacity: 0; transform: translateX(240vw) rotate(-35deg) scaleY(0.2); }
 }
